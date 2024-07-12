@@ -186,10 +186,6 @@ input, select, textarea {
 		line-height: 1.65;
 		margin: 0 0 1em 0;
 	}
-	
-	.wrap-text {
-		display: inline; /* Ensure text wraps within the section width */
-		word-wrap: break-word; /* Ensure long words wrap */
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 			color: inherit;
@@ -2927,8 +2923,6 @@ input, select, textarea {
 
 	.spotlights {
 		border-top: 0 !important;
-		display: flex;
-    	justify-content: center;
 	}
 
 		.spotlights + * {
