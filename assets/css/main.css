@@ -204,10 +204,6 @@ input, select, textarea {
 		font-size: 1.35em;
 	}
 
-	.wrap-text {
-		display: inline; /* Ensure text wraps within the section width */
-		word-wrap: break-word; /* Ensure long words wrap */
-
 	h4 {
 		font-size: 1.1em;
 	}
