@@ -2945,9 +2945,6 @@ input, select, textarea {
 			-ms-flex-direction: row;
 			flex-direction: row;
 			background-color: #2e3450;
-			width: 300px; /* Adjust width as needed */
-    		margin: 0 10px; /* Adjust margins as needed */
-    		text-align: left; /* Ensures text alignment */
 		}
 
 			.spotlights > section > .image {
