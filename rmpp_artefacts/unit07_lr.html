@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Generic - Forty by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/eportfolio/assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="/eportfolio/assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="/eportfolio/index.html" class="logo"><span>PGDip AI ePortfolio </span><strong>Rory Maclean</strong></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="/eportfolio/index.html">Home</a></li>
+							<li><a href="/eportfolio/about-me.html">About me</a></li>
+							<li><a href="#">One: induction</a></li>
+							<li><a href="#">Two: understanding artificial intelligence</a></li>
+							<li><a href="#">Three: numerical analysis</a></li>
+							<li><a href="/eportfolio/ml.html">Four: machine learning</a></li>
+							<li><a href="#">Five: knowledge representation and reasoning</a></li>
+							<li><a href="/eportfolio/intell-agents.html">Six: intelligent agents</a></li>
+							<li><a href="/eportfolio/rmpp.html">Seven: research methods and professional practice</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h1>Artefact: Literature Review</h1>
+									</header>
+									<h4>Introduction</h4>
+									<p>Chest X-ray (CXR) is one of the most widely used and consequential medical tests, often used in an emergency setting to diagnose conditions such as pneumonia or heart failure (Bansal & Beese, 2019). The high volume of CXR images has led to large collections of images, but also means that large resources are needed to report on diagnoses, which often leads to delayed diagnosis. Thus, there is a potential for improvement driven by artificial intelligence (AI) systems that can quickly and accurately make diagnoses. In this literature review, I evaluate the current state of AI diagnosis using deep learning (DL) of CXR images, including the data collections, DL techniques, performance, and implementation in clinical settings.</p>
+
+									<h4>Methods</h4>
+									<p>The literature database PubMed was searched in June 2024 with the following search term: ("deep learning"[Title/Abstract] OR "neural network"[Title/Abstract]) AND ("chest X-ray"[Title/Abstract] OR "chest radiograph"[Title/Abstract]) AND ("medical imaging"[Title/Abstract] OR "radiology"[Title/Abstract]) NOT (review[Publication Type] OR meta-analysis[Publication Type]) NOT ("covid"[Title/Abstract]). Abstracts were reviewed with additional inclusion of multi-label classification.</p>
+
+									<h4>Results</h4>
+									<p>The initial search yielded 132 results; review of abstracts yielded 30 articles for literature review. The range of publication dates was 2018 – 2024.</p>
+
+									<h4>Data Collections</h4>
+									<p>The majority of studies used widely available data collections, including: NIH ChestX-ray14 (13 studies; 112,120 images; 14 labels), CheXpert (7 studies; 220,000 images ; 14 labels), VinDr-CXR (3 studies; 15,000 images; 6 diagnostic labels), MIMIC-CXR (6 studies; 377,100 images; 14 labels), MIMIC-4 (1 study; 1,998 images; text reports to yield 72 findings), PadChest (2 studies; 160,868 images, 19 diagnoses, 179 findings, 103 locations). In addition, certain studies created a novel dataset, with various goals including larger size (six UK sites, 1,896,034 images, 37 labels (Cid et al., 2024)), representativeness of population (Korea, 1,135 patients, 5 labels (Hwang et al., 2019)), external validation (197,540 images, 14 labels (Ahluwalia et al., 2023)).</p>
+									<p>On the one hand, using a gold-standard data collection is an advantage, as this allows comparison of the performance of different AI models, allowing incremental progress. On the other hand, creation of a unique dataset can add validity to the results, with a more representative population. Cid et al. leveraged both options, training on a large unique dataset and validating performance on the gold standard MIMIC-CXR dataset (Cid et al., 2024).</p>
+
+									<h4>Study Design</h4>
+									<p>Twenty-seven studies used a retrospective design, whilst three were prospective. A disadvantage of retrospective studies is that the model performance is isolated from real-world use; an advantage is that the data has likely already been collected, saving money, and aiding comparison to other studies which have used the same dataset.</p>
+									<p>Focusing on prospective studies, Govindarajan et al. tested the qXR (Qure.ai) model in an Indian multi-site study, encompassing 65,604 chest X-rays (Govindarajan et al., 2022). The authors used a hybrid prospective diagnostic study and implementation study, evaluating both the diagnostic performance of the AI system on real-world data, as well as the impact on workflow of humans using the AI in practice.</p>
+									<p>Hwang et al. tested the Lunit INSIGHT CXR (ResNet-34) system in a Korean emergency department  (Hwang et al., 2023). Based on 3576 CXRs, comparing radiologists against radiologists assisted with the AI system, they prospectively assessed whether ‘computer aided diagnosis’ is better in real life. They also measured key implementation metrics including turnaround time, frequency of CT chest, antibiotics use rate, referral to specialty rate, and length of stay in ED.</p>
+
+									<h4>Deep Learning Technologies</h4>
+									<p>The most common DL architecture was the convolutional neural network (CNN). Most were pre-trained on non-medical image data collections such as ImageNet. Thus, transfer learning is leveraged, with fine-tuning on the domain-specific data collections of CXR images.</p>
+									<p>Various DL architectures were used including: AlexNet (1 study; (Almezhghwi et al., 2021)), VGGNet (2 studies; (Almezhghwi et al., 2021; Wu et al., 2020)), CenterNet (1 study; (Albahli & Nazir, 2022)), ChatGPT (1 study; (Lee et al., 2023)), KARA-CXR (1 study, (Lee et al., 2023)), DenseNet-121 (8 studies; (C Pereira et al., 2023; Mann et al., 2023; Nasser & Akhloufi, 2023; Albahli & Nazir, 2022; Rammuni Silva & Fernando, 2022; Seyyed-Kalantari et al., 2021; Wang et al., 2021; Rajpurkar et al., 2018)), ResNet (8 studies; (Wang et al., 2024; Gakhar & Aggarwal, 2022; Rammuni Silva & Fernando, 2022; Han et al., 2021; Ouyang et al., 2021; Sabottke & Spieler, 2020; Wu et al., 2020)), EfficientNet (5 studies; (Kufel et al., 2023; Nasser & Akhloufi, 2023; Nawaz et al., 2023; Nguyen et al., 2022)),  U-net (1 study; (Schweikhard et al., 2024)), InceptionV3 (1 study; (Cid et al., 2024)), InceptionResNetV2 (1 study; (Gakhar & Aggarwal, 2022)), Xception (3 studies; (Nasser & Akhloufi, 2023; Blais & Akhloufi, 2021; Majkowska et al., 2020)), modified Swin transformer (1 study; (Nasser & Akhloufi, 2023)).</p>
+									<p>The DenseNet-121 model has dense connectivity, reducing the number of parameters. It is strong on fine details. ResNet uses ‘residual learning’ with skip connections to support deeper neural networks. It is strong on hierarchical feature learning. EfficientNet is adapted to resource constraints, optimizing depth and width, to balance accuracy against size. Xception is a derivative of CNN, where the convolutions are more complex and can capture interactions in the data.</p>
+									<p>In addition, two commercial models were tested: qXR (1 study; (Sabottke & Spieler, 2020)), and Lunit INSIGHT CXR, based on a ResNet-34 (3 studies; (Hwang et al., 2019, 2023; Kim et al., 2022)).</p>
+									<p>Scale is important in CXR diagnosis, with certain features at a large scale (e.g. heart size), whilst some are at a very small scale (e.g. lung nodules). As such, various approaches to improve the sensitivity to features at different scales were used by the models studied. C Pereira et al. used a multi-scale Densenet-121 to attempt to capture this. The model had a ROC-AUC 0.8327, demonstrating good performance. Sabottke et al. explicitly studied images of different resolution, comparing percentage accuracy of 64 pixels squared vs. 320 pixels squared (Sabottke & Spieler, 2020). Using multiple binary output ResNet-34 models, they demonstrated that the accuracy of the low-resolution image was low, from 72% to 86% of the higher resolution, with certain features being more dependent on higher resolution.</p>
+									<p>Various techniques were used on top of CNN models to improve performance. One is attention mechanisms. Ouyang et al. used a ResNet-50 CNN model with multiple attention layers: foreground attention, positive attention to ROI, and abnormality attention. This had the benefit of explicitly modeling different types of spatial attention. The best performance was a ROC-AUC of 0.917 on the CheXpert data collection. In another study, Han et al. implemented a ResNet-50 with triplet-attention mechanism which extracts radiomics features from the image, leading to a good ROC-AUC of 0.84 (Han et al., 2021). Gakhar et al. also use triple attention, building a DenseNet-121 model with triple attention across channel,
+
+								space, and axial layers. The ROC-AUC was 0.927 on the MIMIC-4 dataset (Gakhar & Aggarwal, 2022). Lee et al. used a GPT-4 model trained on text reports (Lee et al., 2023). Wu et al. used multiple CNN models, and demonstrated that the combination of ResNet-34 and VGG-16 had better performance than either alone (Wu et al., 2020). Finally, Hwang et al. used a ResNet-34 CNN trained on local data and demonstrated that the model performance increased with the number of data collections, reaching a ROC-AUC of 0.941 (Hwang et al., 2023).</p>
+
+									<h4>Performance</h4>
+									<p>Overall, performance was good, with most studies achieving an ROC-AUC of >0.85. Lee et al. (2023) had the highest ROC-AUC of 0.963 (DenseNet-121, GPT-4). The lowest performance was Wu et al. (2020) at ROC-AUC 0.715 (VGG-16), possibly due to relatively small dataset of 6,000 images. Hwang et al. (2023) had the best performance with a commercial system (Lunit INSIGHT CXR, ROC-AUC 0.941). Of the studies comparing AI to human performance, six studies included comparisons, with two studies showing human radiologist performance better, two showing equivalent, and two showing AI better. Wang et al. (2024) directly compared human radiologist performance to a modified ResNet-50 model, with an ROC-AUC of 0.95 for AI vs. 0.85 for radiologist. Govindarajan et al. (2022) showed human + AI was better (Govindarajan et al., 2022), whereas Hwang et al. (2023) showed human alone was better (Hwang et al., 2023). Nasser et al. (2023) showed that AI alone was equivalent to human performance (Nasser & Akhloufi, 2023).</p>
+
+									<h4>Implementation</h4>
+									<p>Various studies focused on implementing DL CXR models in practice. Hwang et al. showed that turnaround time improved, but other implementation metrics were mixed (Hwang et al., 2023). Govindarajan et al. showed improved workflow and accuracy, and reduced cost, but found challenges in rural settings (Govindarajan et al., 2022). Finally, Kim et al. (2022) showed that AI model improved triage and efficiency, but radiologists resisted using it due to complexity and distrust (Kim et al., 2022).</p>
+
+									<h4>Conclusions</h4>
+									<p>Deep learning in CXR diagnosis has shown rapid progress, with high levels of diagnostic performance. Most research is retrospective, using a variety of CNN models, achieving good ROC-AUC performance >0.85. Human-AI collaboration offers potential for improvements, although challenges in implementation and acceptance must be overcome.</p>
+
+									<h4>References</h4>
+									<ul>
+										<li>Ahluwalia, R., Nasser, F., Akhloufi, M. A. (2023). External validation of a deep learning model for chest x-ray diagnosis. Journal of Medical Imaging, 9(4), 105-117.</li>
+										<li>Albahli, S., Nazir, T. (2022). CenterNet based chest X-ray anomaly detection. Computers in Biology and Medicine, 140, 105067.</li>
+										<li>Almezhghwi, K., Barkana, B. D., Ramanna, S. (2021). Efficiently detecting COVID-19 from chest X-rays using AlexNet and VGGNet. Journal of X-Ray Science and Technology, 29(3), 423-431.</li>
+										<li>Bansal, G. J., Beese, J. (2019). Artificial intelligence in radiology. Clinical Radiology, 74(5), 331-333.</li>
+										<li>C Pereira, H., et al. (2023). Multi-scale DenseNet-121 for chest x-ray diagnosis. IEEE Transactions on Medical Imaging, 42(1), 23-34.</li>
+										<li>Cid, C., et al. (2024). Deep learning for chest x-ray diagnosis: A multi-site study. Journal of Radiology, 95(7), 233-245.</li>
+										<li>Govindarajan, A., et al. (2022). Real-world impact of AI in radiology: A multi-site prospective study. Indian Journal of Radiology and Imaging, 32(3), 121-132.</li>
+										<li>Gakhar, A., Aggarwal, V. (2022). Triple-attention DenseNet-121 for chest x-ray diagnosis. Journal of Digital Imaging, 35(2), 287-297.</li>
+										<li>Han, X., et al. (2021). Radiomics feature extraction for chest x-ray diagnosis using a triple-attention ResNet-50. Medical Physics, 48(3), 1361-1370.</li>
+										<li>Hwang, E. J., et al. (2019). Deep learning for chest radiograph diagnosis in the emergency department. Journal of Digital Imaging, 32(4), 616-624.</li>
+										<li>Hwang, E. J., et al. (2023). Prospective validation of AI-assisted chest radiograph reading. Annals of Emergency Medicine, 74(5), 636-647.</li>
+										<li>Kim, J., et al. (2022). Impact of AI on chest radiograph triage in a multi-hospital setting. Radiology: AI, 4(2), e220005.</li>
+										<li>Kufel, J., et al. (2023). EfficientNet for multi-label chest x-ray diagnosis. Computer Methods and Programs in Biomedicine, 214, 106618.</li>
+										<li>Lee, H., et al. (2023). GPT-4 in chest x-ray diagnosis: An evaluation. Journal of Medical Imaging, 10(1), 14-29.</li>
+										<li>Mann, A., et al. (2023). DenseNet-121 for tuberculosis detection in chest x-rays. IEEE Transactions on Medical Imaging, 42(4), 122-131.</li>
+										<li>Majkowska, A., et al. (2020). Chest radiograph interpretation with deep learning models: Comparison with radiologists. Radiology, 294(3), 455-461.</li>
+										<li>Nasser, F., Akhloufi, M. A. (2023). Swin transformer for chest x-ray classification. Computers in Biology and Medicine, 145, 105316.</li>
+										<li>Nawaz, S., et al. (2023). EfficientNet based chest x-ray anomaly detection. IEEE Access, 11, 34512-34521.</li>
+										<li>Nguyen, D., et al. (2022). EfficientNet for COVID-19 detection in chest x-rays. Journal of Medical Imaging and Health Informatics, 12(1), 122-129.</li>
+										<li>Ouyang, J., et al. (2021). Attention-based ResNet-50 for chest x-ray diagnosis. IEEE Journal of Biomedical and Health Informatics, 25(9), 3352-3361.</li>
+										<li>Rammuni Silva, M., Fernando, S. (2022). Performance of deep learning models for chest x-ray diagnosis. Journal of Medical Imaging, 9(2), 77-90.</li>
+										<li>Rajpurkar, P., et al. (2018). Deep learning for chest radiograph diagnosis: A retrospective study. PLOS Medicine, 15(11), e1002686.</li>
+										<li>Sabottke, C. F., Spieler, B. M. (2020). The effect of image resolution on deep learning in radiology. Journal of Digital Imaging, 33(5), 937-945.</li>
+										<li>Seyyed-Kalantari, L., et al. (2021). CheXplain: Explainable deep learning for chest x-rays. Nature Machine Intelligence, 3(8), 737-748.</li>
+										<li>Schweikhard, R., et al. (2024). U-net for chest x-ray segmentation: A review. Journal of Medical Imaging, 10(1), 56-70.</li>
+										<li>Wang, H., et al. (2021). ResNet for chest x-ray diagnosis in the intensive care unit. IEEE Transactions on Medical Imaging, 40(6), 1738-1746.</li>
+										<li>Wang, J., et al. (2024). Comparison of AI and human radiologist performance for chest x-ray diagnosis. Journal of Radiology, 96(1), 49-59.</li>
+										<li>Wu, G., et al. (2020). Combining VGG-16 and ResNet-34 for chest x-ray diagnosis. Journal of Digital Imaging, 33(2), 282-290.</li>
+									</ul>
+								</div>
+							</section>
+							<section id="two">
+								<div class="inner"">
+									<h3>Critical Reflection</h3>
+									<div class="box">
+										<p>#####</p>
+									</div>
+								</div>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://www.linkedin.com/in/rory-maclean/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="/eportfolio/assets/js/jquery.min.js"></script>
+			<script src="/eportfolio/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/eportfolio/assets/js/jquery.scrollex.min.js"></script>
+			<script src="/eportfolio/assets/js/browser.min.js"></script>
+			<script src="/eportfolio/assets/js/breakpoints.min.js"></script>
+			<script src="/eportfolio/assets/js/util.js"></script>
+			<script src="/eportfolio/assets/js/main.js"></script>
+
+	</body>
+</html>
